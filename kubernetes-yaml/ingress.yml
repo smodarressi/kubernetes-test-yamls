@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /simplilearn1
+        pathType: Prefix
+        backend:
+          service:
+            name: myapp1
+            port:
+              number: 80
+      - path: /simplilearn2
+        pathType: Prefix
+        backend:
+          service:
+            name: myapp2
+            port:
+              number: 8080
+

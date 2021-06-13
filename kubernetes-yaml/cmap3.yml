@@ -1,0 +1,20 @@
+kind: Pod 
+apiVersion: v1 
+metadata:
+  name: pod-env12
+spec:
+  containers:
+    - name: env-var-configmap
+      image: nginx:1.7.9 
+      env:
+        - name: myvar1
+          valueFrom: 
+           configMapKeyRef:
+             name: example-configmap
+             key: developer
+       - name: myvar2
+          valueFrom:
+           configMapKeyRef:
+             name: mydata
+             key: course
+

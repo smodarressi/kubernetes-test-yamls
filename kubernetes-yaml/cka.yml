@@ -1,0 +1,348 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-05-23T14:08:00Z"
+    generateName: mydep-54f7b69544-
+    labels:
+      app: mydep
+      pod-template-hash: 54f7b69544
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e384f0f8-47ac-400a-880a-250236d3ecb1"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"httpd"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-05-23T14:08:00Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.38.0.11"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-05-23T14:08:27Z"
+    name: mydep-54f7b69544-mhc4h
+    namespace: cka
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: mydep-54f7b69544
+      uid: e384f0f8-47ac-400a-880a-250236d3ecb1
+    resourceVersion: "167761"
+    uid: 702198c2-156e-496f-8bec-c45480ad5ad0
+  spec:
+    containers:
+    - image: docker.io/httpd
+      imagePullPolicy: Always
+      name: httpd
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-2z5pp
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: node1.example.com
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-2z5pp
+      secret:
+        defaultMode: 420
+        secretName: default-token-2z5pp
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T14:08:00Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T14:08:27Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T14:08:27Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T14:08:00Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://594aa9114dd27cb84c3bf110c9d7a3a17cb13a8d2e30d201d035cf1bb879870c
+      image: httpd:latest
+      imageID: docker-pullable://httpd@sha256:e4c2b93c04762468a6cce6d507d94def02ef4dc285278d0d926e09827f4857db
+      lastState: {}
+      name: httpd
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-23T14:08:27Z"
+    hostIP: 172.31.20.4
+    phase: Running
+    podIP: 10.38.0.11
+    podIPs:
+    - ip: 10.38.0.11
+    qosClass: BestEffort
+    startTime: "2021-05-23T14:08:00Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-05-15T14:58:30Z"
+    generateName: mydep-54f7b69544-
+    labels:
+      app: mydep
+      pod-template-hash: 54f7b69544
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e384f0f8-47ac-400a-880a-250236d3ecb1"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"httpd"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-05-15T14:58:30Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.38.0.9"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-05-23T13:33:58Z"
+    name: mydep-54f7b69544-sxmfs
+    namespace: cka
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: mydep-54f7b69544
+      uid: e384f0f8-47ac-400a-880a-250236d3ecb1
+    resourceVersion: "162305"
+    uid: 47bcdc32-0339-431b-b0b0-3d17a0e643f9
+  spec:
+    containers:
+    - image: docker.io/httpd
+      imagePullPolicy: Always
+      name: httpd
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-2z5pp
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: node1.example.com
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-2z5pp
+      secret:
+        defaultMode: 420
+        secretName: default-token-2z5pp
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-15T14:58:30Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T13:33:58Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T13:33:58Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-15T14:58:30Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://5aecdea1dcfaca80f80f960db399555128535949aa978f04783dcdc95d1c8190
+      image: httpd:latest
+      imageID: docker-pullable://httpd@sha256:e4c2b93c04762468a6cce6d507d94def02ef4dc285278d0d926e09827f4857db
+      lastState:
+        terminated:
+          containerID: docker://38bec91c0f624ef00f768df75d1eb44472d64b9425d550f2174cb36044a64a9e
+          exitCode: 0
+          finishedAt: "2021-05-22T17:48:41Z"
+          reason: Completed
+          startedAt: "2021-05-22T16:30:30Z"
+      name: httpd
+      ready: true
+      restartCount: 7
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-23T13:33:56Z"
+    hostIP: 172.31.20.4
+    phase: Running
+    podIP: 10.38.0.9
+    podIPs:
+    - ip: 10.38.0.9
+    qosClass: BestEffort
+    startTime: "2021-05-15T14:58:30Z"
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

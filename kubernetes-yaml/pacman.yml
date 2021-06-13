@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pacman
+  labels:
+     class: pg
+spec:
+  containers:
+  - name: mycontainer
+    image: docker.io/uzyexe/pacman
+    ports:
+    - containerPort: 80
+

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: openshift
+  labels:
+    mycka: simplilearn-openshift
+spec:
+  containers:
+  - name: openshift
+    image: docker.io/openshift/hello-openshift
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+      port: 8181
+      target_port: 80

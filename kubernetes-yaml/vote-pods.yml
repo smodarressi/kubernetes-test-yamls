@@ -1,0 +1,961 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-05-09T17:00:03Z"
+    generateName: db-684b9b49fd-
+    labels:
+      app: db
+      pod-template-hash: 684b9b49fd
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5c133bbc-70ac-4e04-8cac-7c20d47d63a5"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"postgres"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"POSTGRES_PASSWORD"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"POSTGRES_USER"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":5432,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+              f:volumeMounts:
+                .: {}
+                k:{"mountPath":"/var/lib/postgresql/data"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+          f:volumes:
+            .: {}
+            k:{"name":"db-data"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-05-09T17:00:03Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.38.0.2"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-05-23T13:33:58Z"
+    name: db-684b9b49fd-wtvc5
+    namespace: vote
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: db-684b9b49fd
+      uid: 5c133bbc-70ac-4e04-8cac-7c20d47d63a5
+    resourceVersion: "162300"
+    uid: 2ca517b1-950f-4d29-a505-f06215963ad7
+  spec:
+    containers:
+    - env:
+      - name: POSTGRES_USER
+        value: postgres
+      - name: POSTGRES_PASSWORD
+        value: postgres
+      image: postgres:9.4
+      imagePullPolicy: IfNotPresent
+      name: postgres
+      ports:
+      - containerPort: 5432
+        name: postgres
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/lib/postgresql/data
+        name: db-data
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-mwz6t
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: node1.example.com
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: db-data
+    - name: default-token-mwz6t
+      secret:
+        defaultMode: 420
+        secretName: default-token-mwz6t
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-09T17:00:03Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T13:33:58Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T13:33:58Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-09T17:00:03Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://8c5bc978268405a2e1774d08a7c9451b49f183fd081cf488c5f94d819fe3bad1
+      image: postgres:9.4
+      imageID: docker-pullable://postgres@sha256:42a7a6a647a602efa9592edd1f56359800d079b93fa52c5d92244c58ac4a2ab9
+      lastState:
+        terminated:
+          containerID: docker://fc8552a90485f28315eee5c35ef7884b22f5337e999fc0d7727c317ed820eeb5
+          exitCode: 0
+          finishedAt: "2021-05-22T17:48:40Z"
+          reason: Completed
+          startedAt: "2021-05-22T16:30:29Z"
+      name: postgres
+      ready: true
+      restartCount: 9
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-23T13:33:57Z"
+    hostIP: 172.31.20.4
+    phase: Running
+    podIP: 10.38.0.2
+    podIPs:
+    - ip: 10.38.0.2
+    qosClass: BestEffort
+    startTime: "2021-05-09T17:00:03Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-05-23T14:07:55Z"
+    generateName: redis-67db9bd79b-
+    labels:
+      app: redis
+      pod-template-hash: 67db9bd79b
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"2611e50a-7fb8-420e-8bfc-d30e2b6440ab"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"redis"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":6379,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+              f:volumeMounts:
+                .: {}
+                k:{"mountPath":"/data"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+          f:volumes:
+            .: {}
+            k:{"name":"redis-data"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-05-23T14:07:55Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.38.0.5"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-05-23T14:08:11Z"
+    name: redis-67db9bd79b-gw5v9
+    namespace: vote
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: redis-67db9bd79b
+      uid: 2611e50a-7fb8-420e-8bfc-d30e2b6440ab
+    resourceVersion: "167679"
+    uid: 3f686c8a-a076-4ec6-8c60-a67e9dfbfb03
+  spec:
+    containers:
+    - image: redis:alpine
+      imagePullPolicy: IfNotPresent
+      name: redis
+      ports:
+      - containerPort: 6379
+        name: redis
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /data
+        name: redis-data
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-mwz6t
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: node1.example.com
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - emptyDir: {}
+      name: redis-data
+    - name: default-token-mwz6t
+      secret:
+        defaultMode: 420
+        secretName: default-token-mwz6t
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T14:07:55Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T14:08:11Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T14:08:11Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T14:07:55Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://10039a87e38a5a3f8c8dde38c189d4d77043193a560727cc8bc659b7e9f11b20
+      image: redis:alpine
+      imageID: docker-pullable://redis@sha256:f8f0e809a4281714c33edf86f6da6cc2d4058c8549e44d8c83303c28b3123072
+      lastState: {}
+      name: redis
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-23T14:08:10Z"
+    hostIP: 172.31.20.4
+    phase: Running
+    podIP: 10.38.0.5
+    podIPs:
+    - ip: 10.38.0.5
+    qosClass: BestEffort
+    startTime: "2021-05-23T14:07:55Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-05-23T14:07:55Z"
+    generateName: result-86d8966d87-
+    labels:
+      app: result
+      pod-template-hash: 86d8966d87
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"47c13f87-5d0b-491e-9f31-89944c6e15cb"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"result"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":80,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-05-23T14:07:55Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.38.0.3"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-05-23T16:22:37Z"
+    name: result-86d8966d87-nvltj
+    namespace: vote
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: result-86d8966d87
+      uid: 47c13f87-5d0b-491e-9f31-89944c6e15cb
+    resourceVersion: "183473"
+    uid: 27117939-2d0e-4e9c-adca-db98e977f532
+  spec:
+    containers:
+    - image: dockersamples/examplevotingapp_result:before
+      imagePullPolicy: IfNotPresent
+      name: result
+      ports:
+      - containerPort: 80
+        name: result
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-mwz6t
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: node1.example.com
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-mwz6t
+      secret:
+        defaultMode: 420
+        secretName: default-token-mwz6t
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T14:07:56Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T16:22:37Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T16:22:37Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T14:07:55Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://72159c3e27487f8deecb8454fc8df0240a65b4ee357ef1af1a8ce3d3de118b2b
+      image: dockersamples/examplevotingapp_result:before
+      imageID: docker-pullable://dockersamples/examplevotingapp_result@sha256:83b568996e930c292a6ae5187fda84dd6568a19d97cdb933720be15c757b7463
+      lastState:
+        terminated:
+          containerID: docker://f591bac2d00467d00382f98e0fdea29533853f59d9e6a8943b18ac1665617874
+          exitCode: 1
+          finishedAt: "2021-05-23T16:22:35Z"
+          reason: Error
+          startedAt: "2021-05-23T16:05:52Z"
+      name: result
+      ready: true
+      restartCount: 8
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-23T16:22:36Z"
+    hostIP: 172.31.20.4
+    phase: Running
+    podIP: 10.38.0.3
+    podIPs:
+    - ip: 10.38.0.3
+    qosClass: BestEffort
+    startTime: "2021-05-23T14:07:56Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-05-09T17:00:03Z"
+    generateName: vote-6d4876585f-
+    labels:
+      app: vote
+      pod-template-hash: 6d4876585f
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"22122c16-8160-440d-8a1f-977fffb3b579"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"vote"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":80,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-05-09T17:00:03Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.38.0.1"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-05-23T13:33:44Z"
+    name: vote-6d4876585f-djlwx
+    namespace: vote
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: vote-6d4876585f
+      uid: 22122c16-8160-440d-8a1f-977fffb3b579
+    resourceVersion: "162079"
+    uid: 59e0890b-484d-4224-8bca-4c99481a4e45
+  spec:
+    containers:
+    - image: dockersamples/examplevotingapp_vote:before
+      imagePullPolicy: IfNotPresent
+      name: vote
+      ports:
+      - containerPort: 80
+        name: vote
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-mwz6t
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: node1.example.com
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-mwz6t
+      secret:
+        defaultMode: 420
+        secretName: default-token-mwz6t
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-09T17:00:03Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T13:33:43Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T13:33:43Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-09T17:00:03Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://859723f13f749203b0ce3d25b85c5148c48f3ccdd39355afbe8282a7e7bb5c3c
+      image: dockersamples/examplevotingapp_vote:before
+      imageID: docker-pullable://dockersamples/examplevotingapp_vote@sha256:8e64b18b2c87de902f2b72321c89b4af4e2b942d76d0b772532ff27ec4c6ebf6
+      lastState:
+        terminated:
+          containerID: docker://8701596df64f8ff4692f41007cf231c465a721caad1533fabe5cf5daa46985b9
+          exitCode: 0
+          finishedAt: "2021-05-22T17:48:40Z"
+          reason: Completed
+          startedAt: "2021-05-22T16:30:28Z"
+      name: vote
+      ready: true
+      restartCount: 9
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-23T13:33:42Z"
+    hostIP: 172.31.20.4
+    phase: Running
+    podIP: 10.38.0.1
+    podIPs:
+    - ip: 10.38.0.1
+    qosClass: BestEffort
+    startTime: "2021-05-09T17:00:03Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-05-09T17:00:03Z"
+    generateName: worker-7cbf9df499-
+    labels:
+      app: worker
+      pod-template-hash: 7cbf9df499
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"6933ee90-8090-42c9-b2a4-24d5acbb3e07"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"worker"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2021-05-09T17:00:03Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.38.0.13"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      time: "2021-05-23T15:08:13Z"
+    name: worker-7cbf9df499-7f845
+    namespace: vote
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: worker-7cbf9df499
+      uid: 6933ee90-8090-42c9-b2a4-24d5acbb3e07
+    resourceVersion: "176705"
+    uid: 29acde35-8def-4f4d-af82-9905ca7d86cf
+  spec:
+    containers:
+    - image: dockersamples/examplevotingapp_worker
+      imagePullPolicy: Always
+      name: worker
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-mwz6t
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: node1.example.com
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-mwz6t
+      secret:
+        defaultMode: 420
+        secretName: default-token-mwz6t
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-09T17:00:03Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T15:08:13Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-23T15:08:13Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-05-09T17:00:03Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://78953d8287b40bc7419db3c31397cb2172a941c4131ea31631da7cebe5a1ff89
+      image: dockersamples/examplevotingapp_worker:latest
+      imageID: docker-pullable://dockersamples/examplevotingapp_worker@sha256:55753a7b7872d3e2eb47f146c53899c41dcbe259d54e24b3da730b9acbff50a1
+      lastState:
+        terminated:
+          containerID: docker://40bd9072ccc4f3e50fbb4a5a67e49a047241162e66200870413f7b7f9e8edf84
+          exitCode: 1
+          finishedAt: "2021-05-23T15:08:10Z"
+          reason: Error
+          startedAt: "2021-05-23T13:34:00Z"
+      name: worker
+      ready: true
+      restartCount: 15
+      started: true
+      state:
+        running:
+          startedAt: "2021-05-23T15:08:12Z"
+    hostIP: 172.31.20.4
+    phase: Running
+    podIP: 10.38.0.13
+    podIPs:
+    - ip: 10.38.0.13
+    qosClass: BestEffort
+    startTime: "2021-05-09T17:00:03Z"
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
